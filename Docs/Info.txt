@@ -1,0 +1,116 @@
+Premise:
+Evil Forces is a semi-open world multiplayer FPS/TPS RPG.  You explore the world trying to figure out what is happening.
+
+Rumors of strange creatures about.  Rumors of food coming to life.
+I initially had this as a co-op RPG where there was an ending.
+The ending was that you find a sleeping dragon who's dreams have been partially coming to life, causing all the chaos.
+
+I don't know yet if it will really fit here, but, I'd like to have an "End Game" where in late stages, one of the raids would be the final quest in the main questline to wrap it up.  Though you can still play as usual.  Need to find a lore way to fix that.
+
+Some if it is fleshed out a bit, but, some will need to be fleshed out later such as base building and all the rules, access rules, etc.
+
+Things you can do:
+
+- You start in a town.  You have your own house you can modify.
+- You run around town on foot, bicycles, vehicles, etc.
+- You can join minigames in town such as Snowball Fight, Food Fighters, Fort Attack (build and attack each others forts), etc.  These can be played with other players.
+- You can earn money by doing jobs such as handing out flyers for the arcade, cleaning windows, etc.  These are fun, personal minigames and give you a currency used to buy stuff in town like groceries, bicycles, vehicles, etc.
+(Rudimentary server architecture here: EvilForces_ServerArchitecture.md)
+- You can adventure to other area maps and dungeons to harvest/mine resources, kill monsters, complete quests and find loot and explore POIs.
+- There is cooking, crafting, harvesting, etc.
+- For the Food Fighters "minigame" I'm thinking of something a tad more core.  You will adventure and kill mobs, loot chests, etc. in order to find components to build things, craft, cook and create Food Monsters for Food Fighters (more details to come on the minigame).
+	- For instance, you leave town to adventure in "Candy Land".  You want to make a lollipop fighter called "Sucker Punch". You find paper to craft the stick, destroy/mine candy canes for peppermint lollipop, or pick strawberrys and kill Sugar Bombs to get sugar (or something like that but you get the idea) to make a strawberry lollipop.
+	- I'm thinking of something like a Haunted Village/Mansion where you get the "souls" for your creations
+	- You craft this monster and then can use it to fight other players in "Food Fighters"
+	- The combat is similar to Pokémon but I'm thinking of making it more realtime.  More to come
+- You can upgrade, expand and change your starting house.  Later you'll be able to own land in adventure zones
+- Another minigame - Robot Fighters (placeholder name) - you find parts to build your mech/robot in your workshop to be pitted in battles with other players.  
+	- I'd like different game modes for this:
+		- War - can have team, team deathmatch, deathmatch, CTF, Resource Rodeo (placeholder name.  where you protect resource supply lines) etc
+		- Punchout - 1v1 player battle.  You punch and kick each other with other abilities like Rocket Punch and Shield Slam.  But I think this should be no guns
+
+Classes:
+- I know that this game will have time travel, cybernetic implants, etc. (later on)
+- Essentially, you start the game choosing between 3 archetypes based on playstyle and their place in time/history.  
+- Skill trees
+- The 3 archetypes:  Arcana, Warfare, Tech
+	- Arcana - cast spells, abilities, etc
+	- Warfare - guns, armor and ammo
+	- Tech - gadgets, weapons mods, cybernetic implants
+	- There will be abilities that flesh these out like Necromancer abilities for Arcana
+- Base stats (to start)
+	- Health
+	- Energy
+	- Stamina
+	- Resistances: Physical, Fire, Poison, Decay, Cold, Energy, Chaos
+- I'm thinking of having you start as a child and you have to get your future self before you can adventure
+	- I was going to just have everyone be kids but that may get weird with shooting each other and such.  Discuss?
+- I'm wanting to build a system where 
+
+Progression:
+- Levelling by gaining XP in minigames, jobs, exploring, killing monsters, completing quests, etc
+- Levelling and upgrading armor and equipment.  This can be done by gathering required components.
+- Upgrading house components and crafting equipment
+- Components and crafting resources should have progression.  For instance you might start with copper ingots but move to iron, steel, aluminum, titanium, etc.  Wood, stone, Metal, etc
+
+World:
+- Using OWS and World Partition (see EvilForces_ServerArchitecture.md)
+- Large town/city/region maps but loading to go to adventure zones.  Seemless travel to play minigames
+- There are events that are happening in your town.  
+	- Examples:
+	- You get an alert there's a big snowball fight going on
+	- You get an alert that something is on sale
+- There are events happening in the world
+	- Examples:
+	- You get an alert that ghosts are haunting a mansion on the outskirts of town (you will leave town to get there)
+	- I really like the "For the King" world events like:  "Evil necromancer will consume Heron Village in 5 days" and you have to kill him by then or he unleashes and army and destroys the town
+	- Overworld map should show hotspots for action around the map
+		- More to come on the world map
+
+Standard RPG pillars and systems:
+- Melee combat (swords, bats, etc)
+- Ranged combat (bows, guns, etc)
+- Abilities (magic/spells, dash, place turret, etc)
+- Inventory
+- Storage (items, player progression, config settings, etc)
+- Base building
+- Leaderboards for each minigame (and overall?)
+- Quest System
+- Matchmaking Server
+- Audio System (use metasounds to the fullest)
+- Using the State Tree system for AI and other state driven systems
+- Using Gameplay Ability System (GAS)
+- Using Niagara particle systems 
+- I'm thinking of using Lyra as a starting base (pros and cons?)
+
+
+Demo
+In order to get potential funding, I'm looking for these key features to show off:
+- Main Town (named "Rule")
+- Minigame - Food Fighters
+- Inventory system
+- Base building - just simple to show it off
+- Basic crafting - just enough to make a monster or 2 for food fighters
+- Basic combat - we'll show off the Tech archetype
+- Quest System - gather components to make 2 monsters
+- AreaMap #1 - Haunted Village/Mansion where you get the "souls" for your creations
+- AreaMap #2 - Dark Carnival - get haunted candy and such for your creations?  Not the same as "souls". 
+- Job - passing out flyers for the local arcade
+- Metrics system
+
+What the Demo won't have
+- Complete server architecture (we need to determine what we should show off)
+- Tons of content like items and other areas
+- Achievements
+- Overworld map and functionality
+- 
+
+
+List of other things we'll need (need to flesh this out a lot more)
+- Loading screens
+- Packaging
+- Server Setup
+- Git setup
+- TaskMaster setup
+
+Can you help me break down my Evil Forces game development into manageable tasks? I have a comprehensive PRD and GDD, and I need to plan an 8-month demo development timeline.

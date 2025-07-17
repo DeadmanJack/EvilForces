@@ -1,0 +1,892 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 21,
+        "title": "Set Up Unreal Engine 5 Project Structure",
+        "description": "Initialize the Unreal Engine 5 project with appropriate settings for a multiplayer game with the required performance targets.",
+        "details": "Create a new UE5 project using the latest stable version (UE 5.3+). Configure project settings for multiplayer functionality using Enhanced Input System. Set up source control with Git LFS for large assets. Configure default maps, game modes, and basic project structure. Enable relevant plugins including Online Subsystem, Enhanced Input, and Niagara VFX. Set up initial performance profiling tools and metrics collection.",
+        "testStrategy": "Verify project builds successfully. Confirm all required plugins are enabled. Test basic multiplayer connection locally. Validate performance profiling tools are working.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 22,
+        "title": "Implement Core Game Instance and Save System",
+        "description": "Create the game instance class to manage persistent game state and implement a save system for player progress.",
+        "details": "Develop a GameInstance class that handles session management, player data persistence, and global game state. Implement a robust save system using UE5's SaveGame functionality with JSON serialization for flexibility. Include versioning for save data to handle future updates. Set up auto-save functionality at key progression points. Implement save data encryption for security.",
+        "testStrategy": "Test save/load functionality with various player states. Verify data persistence across game sessions. Test corrupted save data recovery. Validate encryption is working correctly.",
+        "priority": "high",
+        "dependencies": [
+          21
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 23,
+        "title": "Create Player Character Base Class",
+        "description": "Develop the base player character class with movement, camera controls, and networking support.",
+        "details": "Create a base Character class with Enhanced Input support. Implement smooth first-person camera controls with optional third-person toggle. Set up character movement component with appropriate settings for town exploration (walking, running, jumping). Configure network replication for multiplayer synchronization using UE5's improved replication system. Implement character collision settings appropriate for social gameplay.",
+        "testStrategy": "Test character movement in various environments. Verify camera controls feel responsive. Validate network replication in multiplayer test sessions. Measure input latency and ensure it's below acceptable thresholds.",
+        "priority": "high",
+        "dependencies": [
+          21
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 24,
+        "title": "Implement Basic Networking Infrastructure",
+        "description": "Set up the core networking systems to support multiplayer gameplay with the required performance targets.",
+        "details": "Configure Online Subsystem Steam for session management (with fallback to Null subsystem for testing). Implement session creation, finding, and joining functionality. Set up player lobby system with session browser. Configure network relevancy settings for optimal bandwidth usage. Implement basic network compression and prioritization. Target <100ms latency as specified in requirements.",
+        "testStrategy": "Test session creation and joining with multiple clients. Measure network bandwidth usage and latency. Verify session persistence through disconnects. Test with simulated poor network conditions.",
+        "priority": "high",
+        "dependencies": [
+          21,
+          22
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 25,
+        "title": "Design and Implement UI Framework",
+        "description": "Create a flexible UI framework using UMG that will support all game interfaces with consistent styling.",
+        "details": "Develop a modular UI framework using UMG with consistent styling guidelines. Create base widget classes for common UI elements (buttons, panels, lists). Implement UI manager for handling widget navigation and stacking. Set up UI scaling for different resolutions. Create animation system for UI transitions. Implement UI sound feedback system. Use UE5's Common UI framework for consistent controller/keyboard navigation.",
+        "testStrategy": "Test UI at various resolutions and aspect ratios. Verify controller and keyboard navigation works correctly. Validate UI performance with profiling tools. Test accessibility features.",
+        "priority": "high",
+        "dependencies": [
+          21
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 26,
+        "title": "Create Character Customization System",
+        "description": "Implement a basic character customization system for the demo that allows players to personalize their appearance.",
+        "details": "Design a modular character system using UE5's skeletal mesh components. Implement customization options for face, hair, body type, and clothing. Create UI for character creation and editing. Set up save/load functionality for character appearance. Implement preview system for customization changes. Limit options to a reasonable set for the demo (approximately 5-10 options per category).",
+        "testStrategy": "Test all customization options for visual correctness. Verify customization data saves and loads correctly. Test performance with multiple customized characters on screen. Validate network replication of character appearance.",
+        "priority": "medium",
+        "dependencies": [
+          22,
+          23,
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 27,
+        "title": "Implement Day/Night Cycle System",
+        "description": "Create a dynamic day/night cycle with appropriate lighting changes and atmospheric effects.",
+        "details": "Implement a time system with configurable day length (target 30 minutes real-time per in-game day for demo). Create dynamic sky system using UE5's Sky Atmosphere. Set up dynamic lighting with movable directional light for sun/moon. Implement post-process volume changes based on time of day. Add atmospheric effects like fog density changes. Create smooth transitions between different times of day.",
+        "testStrategy": "Test visual quality at different times of day. Verify performance remains at 60 FPS during transitions. Validate lighting changes affect gameplay visibility appropriately. Test time progression and synchronization in multiplayer.",
+        "priority": "medium",
+        "dependencies": [
+          21
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 28,
+        "title": "Design and Implement Inventory Data Structure",
+        "description": "Create the core inventory data structure to support the required item categories and management features.",
+        "details": "Design a flexible inventory system using data tables and structs. Implement item categories (weapons, armor, materials, consumables) with appropriate metadata. Create rarity system with visual indicators (Common, Uncommon, Rare, Epic). Implement weight/slot limitations. Design data structure for crafting materials organization. Set up item stacking and splitting functionality. Use UE5's enhanced data validation to ensure item data integrity.",
+        "testStrategy": "Test adding/removing items from inventory. Verify item stacking and splitting works correctly. Validate inventory persistence through save/load. Test inventory with maximum capacity of items.",
+        "priority": "high",
+        "dependencies": [
+          22
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 29,
+        "title": "Create Inventory UI System",
+        "description": "Develop the user interface for inventory management, including item organization, equipping, and comparison.",
+        "details": "Design and implement inventory grid UI using UMG. Create item tooltip system with detailed information display. Implement drag-and-drop functionality for item management. Create equipment slots with visual feedback. Implement item comparison tooltips for equipment. Add sorting and filtering options. Create context menu for item actions (use, drop, etc.). Implement controller-friendly navigation.",
+        "testStrategy": "Test inventory UI with various screen sizes. Verify all item interactions work correctly. Test controller and keyboard navigation. Validate performance with full inventory. Test accessibility features.",
+        "priority": "high",
+        "dependencies": [
+          25,
+          28
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 30,
+        "title": "Implement Item Database and Generation System",
+        "description": "Create a comprehensive item database with the 50+ required items and implement a system for item generation and management.",
+        "details": "Design data tables for all item types. Create at least 50 unique items across all categories as specified in the PRD. Implement procedural item generation for equipment with varying stats. Set up item quality and rarity distribution. Create unique icons for all items using a consistent art style. Implement item description generation system.",
+        "testStrategy": "Verify all items have correct data and icons. Test procedural item generation for balance. Validate item appearance in inventory UI. Test loading performance with full item database.",
+        "priority": "medium",
+        "dependencies": [
+          28
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 31,
+        "title": "Design and Implement Equipment System",
+        "description": "Create a system for equipping and using items, with appropriate visual and gameplay effects.",
+        "details": "Implement equipment slots system (weapons, armor, accessories). Create visual representation of equipped items on character. Set up stat modifications from equipped items. Implement equipment requirements (level, stats, etc.). Create equipment set bonuses. Implement durability system for equipment. Set up quick-swap functionality for weapons.",
+        "testStrategy": "Test equipping/unequipping all item types. Verify visual appearance of equipped items. Validate stat changes from equipment. Test equipment persistence through save/load.",
+        "priority": "medium",
+        "dependencies": [
+          23,
+          28,
+          29
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 32,
+        "title": "Create Basic Crafting System Framework",
+        "description": "Implement the core crafting system with recipe management and crafting logic.",
+        "details": "Design data structure for crafting recipes using data tables. Implement 25+ crafting recipes as specified in the PRD. Create crafting logic with success rates and quality outcomes. Set up material requirements and consumption. Implement crafting stations with different capabilities. Create crafting UI with recipe browsing and material requirements display. Implement crafting animation and feedback system.",
+        "testStrategy": "Test crafting all available recipes. Verify material consumption works correctly. Validate quality outcome distribution. Test crafting UI usability.",
+        "priority": "high",
+        "dependencies": [
+          28,
+          29
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 33,
+        "title": "Implement Material Gathering System",
+        "description": "Create systems for gathering crafting materials from the environment and adventure zones.",
+        "details": "Implement interactive resource nodes in the world. Create 15+ material types as specified in the PRD. Design visual indicators for gatherable resources. Implement gathering animations and feedback. Set up respawn timers for resource nodes. Create rare resource spawning logic. Implement gathering tool requirements for certain resources.",
+        "testStrategy": "Test gathering from all resource types. Verify resource respawning works correctly. Validate gathering animations and feedback. Test multiplayer synchronization of resource nodes.",
+        "priority": "medium",
+        "dependencies": [
+          23,
+          28
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 34,
+        "title": "Design and Implement Crafting UI",
+        "description": "Create an intuitive user interface for the crafting system with recipe browsing and material management.",
+        "details": "Design and implement crafting UI using UMG. Create recipe browser with filtering and search. Implement material requirement display with inventory integration. Design crafting animation and success/failure feedback. Create quality outcome visualization. Implement crafting sound effects. Add tooltips and help information for new players.",
+        "testStrategy": "Test crafting UI with various screen sizes. Verify all crafting interactions work correctly. Test controller and keyboard navigation. Validate performance with many recipes.",
+        "priority": "medium",
+        "dependencies": [
+          25,
+          32
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 35,
+        "title": "Implement Specialized Crafting Stations",
+        "description": "Create the 5 different specialized crafting stations with unique capabilities and interfaces.",
+        "details": "Design and implement 5 unique crafting stations (workbench, forge, kitchen, alchemy table, engineering station). Create unique 3D models for each station. Implement interaction system for accessing stations. Set up station-specific recipes and capabilities. Create unique crafting animations for each station. Implement station upgrade system for future expansion.",
+        "testStrategy": "Test interaction with all crafting stations. Verify station-specific recipes work correctly. Validate crafting animations and effects. Test multiplayer access to crafting stations.",
+        "priority": "medium",
+        "dependencies": [
+          32,
+          34
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 36,
+        "title": "Design and Implement Base Building Framework",
+        "description": "Create the core systems for house customization and furniture placement.",
+        "details": "Implement grid-based furniture placement system. Create object collision and validation system. Design save/load functionality for house layouts. Implement furniture rotation and precise placement controls. Create preview system for placement. Set up furniture categories and organization. Implement building mode camera controls.",
+        "testStrategy": "Test furniture placement in various house layouts. Verify collision detection prevents invalid placement. Validate save/load of house configurations. Test performance with fully decorated houses.",
+        "priority": "high",
+        "dependencies": [
+          22,
+          23
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 37,
+        "title": "Create Furniture and Decoration Items",
+        "description": "Design and implement the 30+ furniture pieces and 20+ decorative elements required for the demo.",
+        "details": "Create 3D models for 30+ furniture pieces across different categories (seating, storage, tables, beds, etc.). Design 20+ decorative items (paintings, plants, rugs, etc.). Implement material variations for furniture. Set up collision volumes and interaction points. Create item data entries for all furniture. Implement furniture functionality where appropriate (storage, crafting, etc.).",
+        "testStrategy": "Verify all furniture models display correctly. Test collision volumes for accuracy. Validate furniture functionality where applicable. Test performance with many furniture pieces in view.",
+        "priority": "medium",
+        "dependencies": [
+          30,
+          36
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 38,
+        "title": "Implement House Customization UI",
+        "description": "Create the user interface for house customization, furniture placement, and decoration.",
+        "details": "Design and implement building mode UI using UMG. Create furniture catalog with categories and search. Implement placement controls and visual guides. Design rotation and positioning UI. Create undo/redo functionality for building actions. Implement save/load interface for house layouts. Add building mode tutorial elements.",
+        "testStrategy": "Test building UI with various screen sizes. Verify all building interactions work correctly. Test controller and keyboard navigation. Validate performance with full furniture catalog.",
+        "priority": "medium",
+        "dependencies": [
+          25,
+          36,
+          37
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 39,
+        "title": "Create House Types and Room Expansion System",
+        "description": "Implement the 3 different house styles and the system for expanding and modifying houses.",
+        "details": "Design 3 distinct house styles (modern, rustic, fantasy) with unique architectural elements. Implement room addition and modification system. Create wall, flooring, and ceiling customization options. Set up lighting placement and customization. Implement house upgrade progression system. Create cost and resource requirements for expansions.",
+        "testStrategy": "Test all house styles for visual quality. Verify room expansion works correctly. Validate customization options for all house elements. Test performance with fully expanded houses.",
+        "priority": "medium",
+        "dependencies": [
+          36,
+          37
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 40,
+        "title": "Design and Implement Basic Combat System",
+        "description": "Create the core combat mechanics focusing on the Tech archetype as specified in the PRD.",
+        "details": "Implement basic attack system with melee and ranged options. Create hit detection and damage calculation. Implement Tech class special abilities (5-8 unique abilities). Set up targeting system for abilities. Create combat feedback (hit effects, damage numbers, etc.). Implement cooldown and resource management for abilities. Create basic combat UI elements.",
+        "testStrategy": "Test all attack types and abilities. Verify hit detection and damage calculation accuracy. Validate combat feedback clarity. Test performance with multiple combatants.",
+        "priority": "high",
+        "dependencies": [
+          23
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 41,
+        "title": "Create Weapon System",
+        "description": "Implement the 8-10 different weapon types with unique characteristics and gameplay effects.",
+        "details": "Design and implement 8-10 weapon types (pistols, rifles, melee weapons, tech gadgets). Create unique attack animations for each weapon type. Implement weapon stats and damage profiles. Set up weapon special abilities and alternate fire modes. Create weapon switching and management system. Implement ammo and durability systems where appropriate.",
+        "testStrategy": "Test all weapon types in combat scenarios. Verify weapon stats affect combat appropriately. Validate weapon animations and effects. Test weapon switching under network conditions.",
+        "priority": "medium",
+        "dependencies": [
+          31,
+          40
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 42,
+        "title": "Implement Enemy AI Framework",
+        "description": "Create the AI system for enemies with basic behavior patterns and combat capabilities.",
+        "details": "Implement AI behavior tree system for enemy logic. Create perception system for enemy awareness. Design patrol and investigation behaviors. Implement combat tactics and ability usage. Create difficulty scaling system. Set up enemy spawning and management. Implement AI director for dynamic encounters.",
+        "testStrategy": "Test enemy AI in various combat scenarios. Verify perception and awareness mechanics. Validate combat tactics effectiveness. Test performance with multiple AI actors active.",
+        "priority": "high",
+        "dependencies": [
+          40
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 43,
+        "title": "Create Enemy Types",
+        "description": "Design and implement the 6-8 different enemy types with unique appearances and behaviors.",
+        "details": "Create 6-8 unique enemy types with distinct visual designs. Implement specialized behavior trees for each enemy type. Design unique abilities and attack patterns. Set up enemy stat variations and difficulty scaling. Create spawn configurations and encounter designs. Implement enemy sound effects and voice lines.",
+        "testStrategy": "Test all enemy types in combat. Verify unique behaviors function correctly. Validate visual and audio feedback. Test enemy performance in groups.",
+        "priority": "medium",
+        "dependencies": [
+          42
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 44,
+        "title": "Design and Implement Combat VFX and Feedback",
+        "description": "Create visual effects and feedback systems for combat to enhance player experience.",
+        "details": "Implement hit reactions and animations. Create impact visual effects using Niagara. Design damage number system with critical hit indicators. Implement screen feedback for taking damage. Create weapon muzzle effects and projectile visuals. Design ability visual effects with clear gameplay indicators. Implement sound effects for all combat actions.",
+        "testStrategy": "Verify all combat VFX display correctly. Test performance with many effects active. Validate clarity of gameplay information in effects. Test audio-visual synchronization.",
+        "priority": "medium",
+        "dependencies": [
+          40,
+          41
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 45,
+        "title": "Implement Food Fighters Core Mechanics",
+        "description": "Create the foundation for the Food Fighters minigame with turn-based combat and monster creation.",
+        "details": "Implement turn-based combat system with action queue. Create type advantage system (Sweet, Spicy, Sour). Design monster stat system and attributes. Implement ability selection and targeting. Create turn resolution and effect application. Design UI framework for battles. Implement battle state saving and loading.",
+        "testStrategy": "Test turn-based combat flow. Verify type advantage calculations. Validate ability targeting and effects. Test battle state persistence.",
+        "priority": "high",
+        "dependencies": [
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 46,
+        "title": "Create Food Monster System",
+        "description": "Design and implement the food monster creation and customization system.",
+        "details": "Create data structure for monster types and variations. Implement 5-8 base monster types as specified in the PRD. Design monster part system for customization. Implement monster stat generation based on ingredients. Create evolution and leveling system. Design monster storage and management system. Implement monster naming and personalization.",
+        "testStrategy": "Test creation of all monster types. Verify stat generation from different ingredients. Validate evolution and leveling mechanics. Test monster persistence through save/load.",
+        "priority": "high",
+        "dependencies": [
+          28,
+          45
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 47,
+        "title": "Implement Food Fighters Battle UI",
+        "description": "Create the user interface for Food Fighters battles with ability selection and battle information.",
+        "details": "Design and implement battle UI using UMG. Create monster status displays with health and effects. Implement ability selection interface with descriptions. Design turn order display and initiative system. Create battle log for action history. Implement type advantage indicator. Design victory and defeat screens.",
+        "testStrategy": "Test battle UI with various screen sizes. Verify all battle information displays correctly. Test controller and keyboard navigation. Validate performance during complex battles.",
+        "priority": "medium",
+        "dependencies": [
+          25,
+          45
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 48,
+        "title": "Create Food Fighters Battle Arenas",
+        "description": "Design and implement the 3 different battle environments for Food Fighters.",
+        "details": "Create 3 unique battle arena environments with distinct themes. Implement arena-specific visual effects and lighting. Design camera positioning and movement for battles. Create arena selection system. Implement environmental effects that influence battles. Design spectator viewing areas for multiplayer.",
+        "testStrategy": "Test visual quality of all arenas. Verify camera positioning works correctly. Validate environmental effects. Test performance in all arena types.",
+        "priority": "medium",
+        "dependencies": [
+          45
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 49,
+        "title": "Implement Food Fighters Multiplayer",
+        "description": "Create the networking systems for multiplayer Food Fighters battles.",
+        "details": "Implement turn synchronization over network. Create matchmaking system for finding opponents. Design spectator mode for watching battles. Implement anti-cheat measures for competitive play. Create battle invitation system. Design tournament bracket system for competitions.",
+        "testStrategy": "Test multiplayer battles with various network conditions. Verify turn synchronization works correctly. Validate spectator functionality. Test tournament progression.",
+        "priority": "medium",
+        "dependencies": [
+          24,
+          45
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 50,
+        "title": "Design and Implement Quest System Framework",
+        "description": "Create the core quest system with tracking, objectives, and rewards.",
+        "details": "Implement quest data structure using data tables. Create objective tracking system with multiple objective types. Design quest log UI with filtering and sorting. Implement quest state persistence. Create reward distribution system. Design dialogue integration for quest delivery. Implement quest marker and navigation system.",
+        "testStrategy": "Test all quest objective types. Verify quest state saves correctly. Validate reward distribution. Test quest UI functionality.",
+        "priority": "high",
+        "dependencies": [
+          22,
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 51,
+        "title": "Create Main Quest Line",
+        "description": "Implement the 5-6 connected main quests leading to monster creation as specified in the PRD.",
+        "details": "Design and implement 5-6 main quest chain with narrative progression. Create quest-specific dialogue and cutscenes. Implement unique objectives and challenges. Design quest rewards and progression gates. Create quest-specific assets and environments. Implement tutorial elements within early quests.",
+        "testStrategy": "Test full main quest progression. Verify all objectives can be completed. Validate narrative flow and pacing. Test quest-specific features and mechanics.",
+        "priority": "high",
+        "dependencies": [
+          46,
+          50
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 52,
+        "title": "Implement Side Quests",
+        "description": "Create the 10-15 side quests with various objectives and activities.",
+        "details": "Design and implement 10-15 side quests with diverse objectives. Create unique rewards and content for each quest. Implement quest availability conditions. Design repeatable quest options for replayability. Create quest-specific dialogue and characters. Implement quest tracking and management.",
+        "testStrategy": "Test all side quests for completion. Verify quest availability conditions work correctly. Validate quest rewards and progression. Test repeatable quest functionality.",
+        "priority": "medium",
+        "dependencies": [
+          50
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 53,
+        "title": "Design and Implement NPC System",
+        "description": "Create the NPC framework with dialogue, schedules, and interactions.",
+        "details": "Implement NPC behavior system with daily schedules. Create dialogue system with branching conversations. Design NPC memory and relationship tracking. Implement NPC reactions to player actions. Create NPC customization with varied appearances. Design shop and service NPCs with unique offerings.",
+        "testStrategy": "Test NPC behaviors and schedules. Verify dialogue system functions correctly. Validate NPC reactions to player actions. Test performance with many NPCs active.",
+        "priority": "high",
+        "dependencies": [
+          23
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 54,
+        "title": "Create Town NPCs",
+        "description": "Design and implement the 20-30 NPCs for Rule town with unique personalities and functions.",
+        "details": "Create 20-30 unique NPCs with distinct appearances and personalities. Implement NPC-specific dialogue and quests. Design shop keepers and service providers. Create town officials and quest givers. Implement NPC schedules and routines. Design social group dynamics between NPCs.",
+        "testStrategy": "Test interactions with all NPCs. Verify NPC schedules function correctly. Validate shop and service functionality. Test NPC performance in crowded areas.",
+        "priority": "medium",
+        "dependencies": [
+          53
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 55,
+        "title": "Design and Build Rule Town Layout",
+        "description": "Create the main town environment with all required districts and features.",
+        "details": "Design and build the town layout with 5 distinct districts. Create 10-15 player houses as specified in the PRD. Implement market square with shops and crafting stations. Design arcade district with minigame venues. Create town hall and community spaces. Implement industrial zone with advanced crafting. Design navigation paths and landmarks.",
+        "testStrategy": "Test navigation through all town areas. Verify visual quality and performance. Validate building interiors and functionality. Test multiplayer synchronization in town spaces.",
+        "priority": "high",
+        "dependencies": [
+          27
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 56,
+        "title": "Implement Transportation System",
+        "description": "Create the bicycle and basic vehicle systems for town exploration.",
+        "details": "Implement bicycle riding mechanics with physics-based movement. Create basic vehicle system with enter/exit functionality. Design vehicle customization options. Implement vehicle collision and physics. Create vehicle storage and retrieval system. Design traffic system for NPC vehicles.",
+        "testStrategy": "Test all vehicle types for handling and physics. Verify mounting/dismounting functionality. Validate vehicle persistence and storage. Test multiplayer synchronization of vehicles.",
+        "priority": "medium",
+        "dependencies": [
+          23,
+          55
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 57,
+        "title": "Design and Build Haunted Village Adventure Zone",
+        "description": "Create the first adventure zone with gothic horror theme and resource gathering.",
+        "details": "Design and build medium-sized haunted village environment (15-20 minutes exploration). Create atmospheric lighting and effects. Implement 4-6 ghost enemy types. Place 8-10 soul collection points as specified in the PRD. Design 5-7 points of interest. Implement fog and weather effects. Create zone-specific sound design.",
+        "testStrategy": "Test navigation through entire zone. Verify combat encounters and difficulty. Validate resource gathering points. Test performance with all effects active.",
+        "priority": "high",
+        "dependencies": [
+          42,
+          43
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 58,
+        "title": "Design and Build Dark Carnival Adventure Zone",
+        "description": "Create the second adventure zone with creepy carnival theme and boss encounter.",
+        "details": "Design and build medium-sized dark carnival environment (20-25 minutes exploration). Create carnival rides and attractions with interaction. Implement 5-7 carnival-themed enemies. Place 10-12 haunted candy collection points. Design unique boss encounter with special mechanics. Create environmental puzzles and challenges. Implement carnival-themed sound design.",
+        "testStrategy": "Test navigation through entire zone. Verify combat encounters and difficulty. Validate boss fight mechanics and balance. Test performance with all effects active.",
+        "priority": "high",
+        "dependencies": [
+          42,
+          43
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 59,
+        "title": "Implement Arcade Flyer Distribution Job",
+        "description": "Create the job minigame for distributing flyers with progression and rewards.",
+        "details": "Design and implement flyer distribution gameplay mechanics. Create 3 difficulty levels with increasing challenges. Implement scoring system and high score tracking. Design job progression with skill improvements. Create reward system with currency and items. Implement multiplayer competition and leaderboards.",
+        "testStrategy": "Test all difficulty levels for balance. Verify scoring and rewards function correctly. Validate leaderboard functionality. Test performance during minigame.",
+        "priority": "medium",
+        "dependencies": [
+          24,
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 60,
+        "title": "Implement Tutorial System",
+        "description": "Create a comprehensive tutorial system to introduce players to game mechanics.",
+        "details": "Design tutorial flow for new players (5 minutes as specified). Implement contextual help system with tooltips. Create guided objectives for core mechanics. Design tutorial UI elements and callouts. Implement tutorial skip option for experienced players. Create tutorial progress tracking.",
+        "testStrategy": "Test full tutorial progression. Verify all mechanics are adequately explained. Validate tutorial skip functionality. Test tutorial with both keyboard/mouse and controller.",
+        "priority": "high",
+        "dependencies": [
+          25,
+          40,
+          45,
+          50
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 61,
+        "title": "Implement Metrics and Analytics System",
+        "description": "Create the metrics system for tracking player behavior and technical performance.",
+        "details": "Implement event-based analytics system using Google Analytics 4. Create custom event tracking for key player actions. Design performance monitoring for FPS and loading times. Implement session tracking with length and feature usage. Create real-time dashboard for data visualization. Ensure GDPR compliance with opt-in/out functionality.",
+        "testStrategy": "Verify all tracked events are recorded correctly. Test data transmission and storage. Validate dashboard functionality. Test opt-in/out system for compliance.",
+        "priority": "medium",
+        "dependencies": [
+          22
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 62,
+        "title": "Create In-Game Feedback System",
+        "description": "Implement a system for collecting player feedback during the demo.",
+        "details": "Design in-game feedback UI with survey questions. Implement screenshot and bug reporting functionality. Create feedback categorization system. Design rating scales for different aspects of gameplay. Implement feedback data collection and storage. Create developer notification system for critical feedback.",
+        "testStrategy": "Test feedback submission process. Verify data collection and storage. Validate notification system. Test with various feedback types and categories.",
+        "priority": "low",
+        "dependencies": [
+          25,
+          61
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 63,
+        "title": "Implement Social and Chat System",
+        "description": "Create basic communication systems for player interaction.",
+        "details": "Implement text chat system with channels (global, local, whisper). Create emote system with animations. Design friend list and social connections. Implement player trading interface. Create player profile and status system. Design chat filtering and moderation tools.",
+        "testStrategy": "Test all chat channels and functionality. Verify emote system works correctly. Validate friend and social features. Test chat performance with many active users.",
+        "priority": "medium",
+        "dependencies": [
+          24,
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 64,
+        "title": "Create Currency and Economy System",
+        "description": "Implement the game's economy with currency, shops, and trading.",
+        "details": "Design currency system with appropriate earning rates. Implement shop system with buying and selling. Create item pricing and value calculations. Design shop inventory management and restocking. Implement player-to-player trading. Create auction or marketplace system for future expansion.",
+        "testStrategy": "Test currency earning and spending. Verify shop functionality and pricing. Validate trading system security. Test economy balance with various player activities.",
+        "priority": "medium",
+        "dependencies": [
+          28,
+          29
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 65,
+        "title": "Implement Loading Screen System",
+        "description": "Create loading screens with progress indication and tips to meet the <30 second loading time requirement.",
+        "details": "Design visually appealing loading screen templates. Implement asset streaming optimization to reduce load times. Create progress bar with accurate loading percentage. Design tip and hint system for loading screens. Implement background loading where possible. Create transition animations between areas.",
+        "testStrategy": "Measure loading times on target hardware. Verify progress indication accuracy. Validate tip display functionality. Test with various connection speeds for multiplayer.",
+        "priority": "medium",
+        "dependencies": [
+          21,
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 66,
+        "title": "Create Sound Design System",
+        "description": "Implement comprehensive audio systems for music, sound effects, and ambient audio.",
+        "details": "Design adaptive music system with seamless transitions. Implement 3D positional audio for sound effects. Create ambient sound system for environments. Design UI sound feedback. Implement character footsteps and movement sounds. Create voice-over system for NPCs and tutorials. Design audio mixing and volume controls.",
+        "testStrategy": "Test audio in various environments. Verify 3D positioning accuracy. Validate music transitions. Test performance with many audio sources active.",
+        "priority": "medium",
+        "dependencies": [
+          21
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 67,
+        "title": "Implement Performance Optimization Systems",
+        "description": "Create systems for optimizing performance to meet the 60 FPS target on recommended hardware.",
+        "details": "Implement level of detail (LOD) system for models. Create occlusion culling setup for complex environments. Design dynamic resolution scaling based on performance. Implement texture streaming optimization. Create asset loading prioritization. Design performance profiling and monitoring tools. Implement graphics settings with presets.",
+        "testStrategy": "Benchmark performance on minimum and recommended hardware. Verify 60 FPS target is maintained in all areas. Test with many players in multiplayer. Validate memory usage stays below 8GB target.",
+        "priority": "high",
+        "dependencies": [
+          21
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 68,
+        "title": "Create Settings and Configuration System",
+        "description": "Implement comprehensive settings for graphics, audio, controls, and gameplay options.",
+        "details": "Design settings menu UI with categories. Implement graphics settings with quality presets. Create audio volume and mixing controls. Design control rebinding system for keyboard and controller. Implement accessibility options. Create gameplay preference settings. Design language and localization options.",
+        "testStrategy": "Test all settings for correct application. Verify settings persistence through game restarts. Validate control rebinding functionality. Test with various hardware configurations.",
+        "priority": "medium",
+        "dependencies": [
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 69,
+        "title": "Implement Save/Load Management UI",
+        "description": "Create user interface for managing save files, profiles, and game data.",
+        "details": "Design save/load menu UI with save previews. Implement multiple save slot functionality. Create auto-save configuration options. Design save file naming and organization. Implement save file backup and recovery. Create cloud save integration for future expansion.",
+        "testStrategy": "Test save/load functionality with various game states. Verify save preview information accuracy. Validate auto-save functionality. Test save file corruption recovery.",
+        "priority": "medium",
+        "dependencies": [
+          22,
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 70,
+        "title": "Create Main Menu and Game Flow",
+        "description": "Implement the main menu, game flow, and session management.",
+        "details": "Design main menu UI with options and news. Implement game session creation and joining. Create character selection and management. Design options and settings access. Implement credits and information screens. Create intro cinematic and game start sequence. Design session end and results screens.",
+        "testStrategy": "Test all menu navigation paths. Verify session creation and joining. Validate character selection and management. Test game flow from start to finish.",
+        "priority": "high",
+        "dependencies": [
+          22,
+          24,
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 71,
+        "title": "Implement Crash Reporting and Error Handling",
+        "description": "Create systems for crash reporting, error logging, and recovery to meet the <1% crash rate requirement.",
+        "details": "Implement crash detection and reporting using Sentry or similar service. Create detailed error logging system. Design graceful error recovery where possible. Implement automatic save backup on crash. Create diagnostic information collection. Design user-friendly error messages and guidance.",
+        "testStrategy": "Test crash recovery with forced crashes. Verify error logging captures relevant information. Validate automatic save backup functionality. Test error message clarity and helpfulness.",
+        "priority": "high",
+        "dependencies": [
+          21,
+          22
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 72,
+        "title": "Create Demo Conclusion and Feedback Collection",
+        "description": "Implement the demo conclusion with summary and feedback collection.",
+        "details": "Design demo conclusion sequence and messaging. Create progress summary screen. Implement comprehensive feedback survey. Design call-to-action for continued engagement. Create social media sharing functionality. Implement email collection for updates (with GDPR compliance).",
+        "testStrategy": "Test demo conclusion flow. Verify feedback collection and storage. Validate email collection and compliance. Test social media integration.",
+        "priority": "medium",
+        "dependencies": [
+          61,
+          62
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 73,
+        "title": "Implement Playtesting Tools and Debug Features",
+        "description": "Create development tools for testing, debugging, and content validation.",
+        "details": "Implement developer console with commands. Create debug visualization tools. Design cheat and testing commands. Implement teleportation and navigation tools. Create state inspection and modification tools. Design performance monitoring overlays. Implement automated testing frameworks.",
+        "testStrategy": "Verify all debug commands function correctly. Test visualization tools for clarity. Validate automated testing functionality. Test with development team for usability.",
+        "priority": "medium",
+        "dependencies": [
+          21
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 74,
+        "title": "Create Documentation System",
+        "description": "Implement in-game documentation and help systems for players.",
+        "details": "Design in-game help menu and documentation. Create contextual help system with tooltips. Implement glossary of terms and mechanics. Design control reference and guide. Create crafting recipe collection. Implement monster catalog for Food Fighters. Design map and navigation guides.",
+        "testStrategy": "Test all documentation for accuracy and clarity. Verify contextual help triggers correctly. Validate control references for all input methods. Test with new players for comprehension.",
+        "priority": "low",
+        "dependencies": [
+          25,
+          45,
+          50
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 75,
+        "title": "Implement Localization Framework",
+        "description": "Create systems for text and audio localization to support multiple languages.",
+        "details": "Implement text localization system using string tables. Create font support for multiple languages. Design UI scaling for text length variations. Implement localized audio system. Create translation workflow and tools. Design language selection and settings.",
+        "testStrategy": "Test text display in supported languages. Verify UI adapts to text length changes. Validate audio switching based on language. Test with native speakers for accuracy.",
+        "priority": "low",
+        "dependencies": [
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 76,
+        "title": "Create Accessibility Features",
+        "description": "Implement accessibility options to make the game playable by a wider audience.",
+        "details": "Design colorblind modes and high contrast options. Implement text size and readability settings. Create control remapping for accessibility. Design audio cues and visual alternatives. Implement difficulty and assistance options. Create screen reader support for UI.",
+        "testStrategy": "Test with colorblind simulation. Verify text readability at different sizes. Validate control schemes for accessibility. Test with screen readers and accessibility tools.",
+        "priority": "medium",
+        "dependencies": [
+          25,
+          68
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 77,
+        "title": "Implement Achievement System",
+        "description": "Create a basic achievement system for tracking player progress and accomplishments.",
+        "details": "Design achievement data structure and tracking. Implement achievement notification system. Create achievement UI and listing. Design achievement rewards where appropriate. Implement progress tracking for incremental achievements. Create achievement persistence and synchronization.",
+        "testStrategy": "Test all achievement triggers and conditions. Verify notification system works correctly. Validate achievement persistence through save/load. Test achievement UI and display.",
+        "priority": "low",
+        "dependencies": [
+          22,
+          25
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 78,
+        "title": "Create Demo Packaging and Distribution System",
+        "description": "Implement systems for packaging and distributing the demo to testers and stakeholders.",
+        "details": "Design installer and packaging process. Create update and patching system. Implement version checking and compatibility. Design distribution platform integration (Steam, Epic, etc.). Create analytics for installation and usage. Implement feedback collection during installation.",
+        "testStrategy": "Test installation process on various systems. Verify update and patching functionality. Validate version checking and compatibility. Test distribution through target platforms.",
+        "priority": "high",
+        "dependencies": [
+          21,
+          67
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 79,
+        "title": "Implement Demo Time Limitation and Flow",
+        "description": "Create systems to manage the demo experience flow and timing as specified in the PRD.",
+        "details": "Implement demo time tracking for the 100-minute core experience. Create guided progression through key features. Design optional content access and discovery. Implement demo conclusion and summary. Create replay incentives and variation. Design demo reset functionality for repeated testing.",
+        "testStrategy": "Test full demo flow for timing accuracy. Verify all key features are experienced. Validate demo conclusion and summary. Test replay with different choices and paths.",
+        "priority": "medium",
+        "dependencies": [
+          51,
+          52,
+          60
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 80,
+        "title": "Final Integration and Testing",
+        "description": "Perform comprehensive integration testing and final polish for the complete demo experience.",
+        "details": "Conduct end-to-end testing of complete demo flow. Perform performance optimization and profiling. Implement final balance adjustments. Create final build with all features integrated. Conduct compatibility testing across hardware specs. Implement final bug fixes and polish.",
+        "testStrategy": "Test complete demo experience multiple times. Verify performance meets targets on all hardware specs. Validate all features work together correctly. Test with external testers for fresh perspective.",
+        "priority": "high",
+        "dependencies": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-01-27",
+      "updated": "2025-07-17T22:48:13.292Z",
+      "description": "Tasks for master context"
+    }
+  }
+}
