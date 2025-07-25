@@ -1,0 +1,1337 @@
+{
+	"folders": [
+		{
+			"name": "EvilForces",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "C:\\UE5\\UnrealEngine"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off",
+		"terminal.integrated.env.windows": {
+			"PATH": "C:\\UE5\\UnrealEngine\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+			"DOTNET_ROOT": "C:\\UE5\\UnrealEngine\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64",
+			"DOTNET_HOST_PATH": "C:\\UE5\\UnrealEngine\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+			"DOTNET_MULTILEVEL_LOOKUP": "0",
+			"DOTNET_ROLL_FORWARD": "LatestMajor"
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "EvilForces Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Test Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Test",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Test Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Test",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces Win64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Test Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Test",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Shipping Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Shipping",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Shipping",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces Win64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Win64 Shipping Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"Win64",
+					"Shipping",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Test Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Test",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Test Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Test",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces Linux Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Test Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Test",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Shipping Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Shipping",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Shipping Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Shipping",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces Linux Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces Linux Shipping Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"Linux",
+					"Shipping",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces LinuxArm64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces LinuxArm64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces LinuxArm64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Test Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Test",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Test Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Test",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces LinuxArm64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Test Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Test",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Shipping Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Shipping",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Shipping",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForces LinuxArm64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForces LinuxArm64 Shipping Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForces",
+					"LinuxArm64",
+					"Shipping",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Win64",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Win64",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForcesEditor Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Win64",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Win64",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Win64",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForcesEditor Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Win64",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Win64",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Win64",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForcesEditor Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Win64",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Linux Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Linux",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Linux",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForcesEditor Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Linux Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Linux",
+					"Debug",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Linux",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Linux",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForcesEditor Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Linux",
+					"DebugGame",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Linux Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Linux",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Linux",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"EvilForcesEditor Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"label": "EvilForcesEditor Linux Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"EvilForcesEditor",
+					"Linux",
+					"Development",
+					"C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "C:\\UE5\\UnrealEngine"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch EvilForces (Debug)",
+				"request": "launch",
+				"program": "C:\\workfast\\EvilForces\\Binaries\\Win64\\EvilForces-Win64-Debug.exe",
+				"preLaunchTask": "EvilForces Win64 Debug Build",
+				"args": [
+				],
+				"cwd": "C:\\UE5\\UnrealEngine",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "C:\\UE5\\UnrealEngine\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"Z:\\UEVFS\\EvilForces": "C:\\workfast\\EvilForces",
+					"Z:\\UEVFS\\Root": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch EvilForces (DebugGame)",
+				"request": "launch",
+				"program": "C:\\workfast\\EvilForces\\Binaries\\Win64\\EvilForces-Win64-DebugGame.exe",
+				"preLaunchTask": "EvilForces Win64 DebugGame Build",
+				"args": [
+				],
+				"cwd": "C:\\UE5\\UnrealEngine",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "C:\\UE5\\UnrealEngine\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"Z:\\UEVFS\\EvilForces": "C:\\workfast\\EvilForces",
+					"Z:\\UEVFS\\Root": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch EvilForces (Development)",
+				"request": "launch",
+				"program": "C:\\workfast\\EvilForces\\Binaries\\Win64\\EvilForces.exe",
+				"preLaunchTask": "EvilForces Win64 Development Build",
+				"args": [
+				],
+				"cwd": "C:\\UE5\\UnrealEngine",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "C:\\UE5\\UnrealEngine\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"Z:\\UEVFS\\EvilForces": "C:\\workfast\\EvilForces",
+					"Z:\\UEVFS\\Root": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch EvilForces (Test)",
+				"request": "launch",
+				"program": "C:\\workfast\\EvilForces\\Binaries\\Win64\\EvilForces-Win64-Test.exe",
+				"preLaunchTask": "EvilForces Win64 Test Build",
+				"args": [
+				],
+				"cwd": "C:\\UE5\\UnrealEngine",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "C:\\UE5\\UnrealEngine\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"Z:\\UEVFS\\EvilForces": "C:\\workfast\\EvilForces",
+					"Z:\\UEVFS\\Root": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch EvilForces (Shipping)",
+				"request": "launch",
+				"program": "C:\\workfast\\EvilForces\\Binaries\\Win64\\EvilForces-Win64-Shipping.exe",
+				"preLaunchTask": "EvilForces Win64 Shipping Build",
+				"args": [
+				],
+				"cwd": "C:\\UE5\\UnrealEngine",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "C:\\UE5\\UnrealEngine\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"Z:\\UEVFS\\EvilForces": "C:\\workfast\\EvilForces",
+					"Z:\\UEVFS\\Root": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch EvilForcesEditor (Debug)",
+				"request": "launch",
+				"program": "C:\\UE5\\UnrealEngine\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-Debug.exe",
+				"preLaunchTask": "EvilForcesEditor Win64 Debug Build",
+				"args": [
+					"C:\\workfast\\EvilForces\\EvilForces.uproject"
+				],
+				"cwd": "C:\\UE5\\UnrealEngine",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "C:\\UE5\\UnrealEngine\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"Z:\\UEVFS\\EvilForces": "C:\\workfast\\EvilForces",
+					"Z:\\UEVFS\\Root": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch EvilForcesEditor (DebugGame)",
+				"request": "launch",
+				"program": "C:\\UE5\\UnrealEngine\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-DebugGame.exe",
+				"preLaunchTask": "EvilForcesEditor Win64 DebugGame Build",
+				"args": [
+					"C:\\workfast\\EvilForces\\EvilForces.uproject"
+				],
+				"cwd": "C:\\UE5\\UnrealEngine",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "C:\\UE5\\UnrealEngine\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"Z:\\UEVFS\\EvilForces": "C:\\workfast\\EvilForces",
+					"Z:\\UEVFS\\Root": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch EvilForcesEditor (Development)",
+				"request": "launch",
+				"program": "C:\\UE5\\UnrealEngine\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+				"preLaunchTask": "EvilForcesEditor Win64 Development Build",
+				"args": [
+					"C:\\workfast\\EvilForces\\EvilForces.uproject"
+				],
+				"cwd": "C:\\UE5\\UnrealEngine",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "C:\\UE5\\UnrealEngine\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"Z:\\UEVFS\\EvilForces": "C:\\workfast\\EvilForces",
+					"Z:\\UEVFS\\Root": "C:\\UE5\\UnrealEngine"
+				}
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Win64 Development Build",
+				"program": "C:\\UE5\\UnrealEngine\\Engine\\Build\\BatchFiles\\RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=C:\\workfast\\EvilForces\\EvilForces.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"env": {
+					"PATH": "C:\\UE5\\UnrealEngine\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+					"DOTNET_ROOT": "C:\\UE5\\UnrealEngine\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64",
+					"DOTNET_HOST_PATH": "C:\\UE5\\UnrealEngine\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+					"DOTNET_MULTILEVEL_LOOKUP": "0",
+					"DOTNET_ROLL_FORWARD": "LatestMajor"
+				},
+				"console": "integratedTerminal",
+				"stopAtEntry": false,
+				"cwd": "C:\\UE5\\UnrealEngine"
+			}
+		]
+	}
+}
