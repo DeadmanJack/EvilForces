@@ -76,8 +76,10 @@ Plugins/*/Binaries/*
 DerivedDataCache/*
 
 # Visual code project files
-.vscode
-
+.vscode/
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/c_cpp_properties.json
 
 Plugins/AscentCombatFramework/*
 
@@ -119,4 +121,4 @@ secrets.json
 # tasks/
 
 # Error logs
-Docs/error.txt 
+Docs/error.txt
