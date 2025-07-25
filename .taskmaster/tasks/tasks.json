@@ -15,15 +15,97 @@
       {
         "id": 22,
         "title": "Implement Core Game Instance and Save System",
-        "description": "Create the game instance class to manage persistent game state and implement a save system for player progress.",
-        "details": "Develop a GameInstance class that handles session management, player data persistence, and global game state. Implement a robust save system using UE5's SaveGame functionality with JSON serialization for flexibility. Include versioning for save data to handle future updates. Set up auto-save functionality at key progression points. Implement save data encryption for security.",
-        "testStrategy": "Test save/load functionality with various player states. Verify data persistence across game sessions. Test corrupted save data recovery. Validate encryption is working correctly.",
-        "priority": "high",
+        "description": "Create the game instance class to manage persistent game state and implement a save system for player progress, with options for both UE5 native functionality and Rust integration.",
+        "status": "pending",
         "dependencies": [
           21
         ],
-        "status": "pending",
-        "subtasks": []
+        "priority": "high",
+        "details": "Develop a GameInstance class that handles session management, player data persistence, and global game state. Implement a robust save system using UE5's SaveGame functionality with JSON serialization for flexibility. Include versioning for save data to handle future updates. Set up auto-save functionality at key progression points. Implement save data encryption for security. Evaluate the official Rust UE5 plugin and implement a custom C interop approach using Rust client wrapper with cxx.rs for UE5 integration as an alternative, providing full control and stability but requiring Rust knowledge.",
+        "testStrategy": "Test save/load functionality with various player states. Verify data persistence across game sessions. Test corrupted save data recovery. Validate encryption is working correctly. For Rust integration, test both plugin and C interop approaches for performance and stability.",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement UE5 GameInstance class",
+            "description": "Create the base GameInstance class to manage game state and session data",
+            "status": "pending",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Implement UE5 native SaveGame functionality",
+            "description": "Create save/load system using UE5's built-in SaveGame with JSON serialization",
+            "status": "pending",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Implement save data versioning",
+            "description": "Add version control to save data to handle future updates and migrations",
+            "status": "pending",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Implement auto-save functionality",
+            "description": "Create auto-save triggers at key progression points in the game",
+            "status": "pending",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Implement save data encryption",
+            "description": "Add encryption to save files for security",
+            "status": "pending",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 6,
+            "title": "Evaluate official Rust UE5 plugin",
+            "description": "Test and evaluate the beta Rust plugin for UE5 integration",
+            "status": "pending",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 7,
+            "title": "Implement Rust client wrapper with cxx.rs",
+            "description": "Create a custom C interop solution using Rust with cxx.rs for UE5 integration",
+            "status": "pending",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 8,
+            "title": "Create Rust-based save data handlers",
+            "description": "Implement save/load functionality through the Rust integration layer",
+            "status": "pending",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 9,
+            "title": "Performance testing of native vs Rust approaches",
+            "description": "Compare performance metrics between UE5 native and Rust-based save systems",
+            "status": "pending",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          }
+        ]
       },
       {
         "id": 23,
@@ -881,11 +963,26 @@
         ],
         "status": "pending",
         "subtasks": []
+      },
+      {
+        "id": 81,
+        "title": "Evaluate SpacetimeDB vs OWS for UE5 Multiplayer Integration",
+        "description": "Research, implement test cases, and benchmark SpacetimeDB and Online Web Services (OWS) to determine the optimal multiplayer backend solution for Evil Forces.",
+        "details": "1. Research Phase:\n   - Conduct comprehensive research on SpacetimeDB and its UE5 plugin capabilities\n   - Research OWS (Online Web Services) integration with UE5\n   - Document features, limitations, and integration requirements for both technologies\n   - Analyze community support, documentation quality, and long-term viability\n\n2. Test Implementation:\n   - Create a small test project in UE5 with basic multiplayer functionality\n   - Implement the same functionality using SpacetimeDB plugin\n   - Implement the same functionality using OWS\n   - Ensure both implementations include:\n     * Player connection/disconnection\n     * State synchronization\n     * Event broadcasting\n     * Latency handling\n     * Error recovery\n\n3. Performance Benchmarking:\n   - Design benchmark scenarios that simulate expected game load\n   - Measure connection times, latency, and throughput\n   - Test scalability with simulated player loads\n   - Evaluate CPU/memory usage on both client and server\n   - Test resilience under network degradation\n\n4. Architecture Analysis:\n   - Evaluate code complexity and maintenance requirements\n   - Assess integration difficulty with existing systems\n   - Analyze security features and potential vulnerabilities\n   - Consider deployment requirements and operational costs\n   - Evaluate extensibility for future game features\n\n5. Final Recommendation:\n   - Create a detailed comparison matrix of both technologies\n   - Provide a clear recommendation with justification\n   - Document migration path for existing code if necessary\n   - Outline implementation strategy for the chosen technology",
+        "testStrategy": "1. Functionality Testing:\n   - Verify both SpacetimeDB and OWS implementations correctly handle basic multiplayer operations\n   - Test connection stability under various network conditions\n   - Validate state synchronization accuracy between clients\n   - Verify correct handling of player join/leave events\n\n2. Performance Testing:\n   - Run automated load tests simulating 50, 100, and 200+ concurrent players\n   - Measure and compare server resource utilization\n   - Record and analyze latency metrics under different load conditions\n   - Test bandwidth requirements for typical gameplay scenarios\n\n3. Integration Testing:\n   - Verify compatibility with existing game systems\n   - Test integration with authentication systems\n   - Validate persistence of game state across server restarts\n   - Ensure proper error handling and recovery\n\n4. Comparative Analysis:\n   - Create side-by-side comparison charts of all metrics\n   - Perform statistical analysis on performance data\n   - Document developer experience and implementation challenges\n   - Validate that the recommended solution meets all project requirements\n\n5. Peer Review:\n   - Present findings to the technical team for review\n   - Conduct a technical demonstration of both implementations\n   - Document feedback and address any concerns before finalizing recommendation",
+        "status": "pending",
+        "dependencies": [
+          21,
+          23,
+          49
+        ],
+        "priority": "high",
+        "subtasks": []
       }
     ],
     "metadata": {
       "created": "2025-01-27",
-      "updated": "2025-07-17T22:48:13.292Z",
+      "updated": "2025-07-18T13:13:16.883Z",
       "description": "Tasks for master context"
     }
   }
